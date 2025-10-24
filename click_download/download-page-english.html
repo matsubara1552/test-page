@@ -10,12 +10,12 @@
 
     <script>
         window.onload = function() {
-            const content = 'test';
+            const content = 'click download test (redirect)';
             const blob = new Blob([content], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'test.txt';
+            a.download = 'redirect_test.txt';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);

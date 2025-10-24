@@ -10,12 +10,12 @@
 
     <script>
         window.onload = function() {
-            const content = 'テスト';
+            const content = 'クリックダウンロードテスト（遷移）';
             const blob = new Blob([content], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = '日本語テスト.txt';
+            a.download = 'リダイレクト日本語テスト.txt';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);

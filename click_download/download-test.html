@@ -42,7 +42,7 @@
 
     <script>
         function downloadEnglish() {
-            const content = 'test';
+            const content = 'click download test';
             const blob = new Blob([content], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -55,7 +55,7 @@
         }
 
         function downloadJapanese() {
-            const content = 'テスト';
+            const content = 'クリックダウンロードテスト';
             const blob = new Blob([content], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
