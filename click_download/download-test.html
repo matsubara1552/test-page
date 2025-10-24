@@ -36,7 +36,6 @@
     <div class="container">
         <button class="download-btn" id="download-english" onclick="downloadEnglish()">test.txt ダウンロード</button>
         <button class="download-btn" id="download-japanese" onclick="downloadJapanese()">日本語テスト.txt ダウンロード</button>
-        <button class="download-btn" id="download-redirect-english" onclick="redirectEnglish()">test.txt ダウンロード（遷移）</button>
         <button class="download-btn" id="download-redirect-japanese" onclick="redirectJapanese()">日本語テスト.txt ダウンロード（遷移）</button>
     </div>
 
@@ -65,10 +64,6 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-        }
-
-        function redirectEnglish() {
-            window.location.href = 'download-page-english.html';
         }
 
         function redirectJapanese() {
