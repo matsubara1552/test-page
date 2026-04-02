@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Dialog Test</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button { margin: 8px 4px; padding: 8px 16px; font-size: 14px; cursor: pointer; }
+    #log { margin-top: 20px; padding: 12px; background: #f0f0f0; min-height: 60px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Dialog Test Page</h1>
+  <p>このページはロード時に <strong>alert</strong> を発火します（<code>goto()</code> 中にダイアログが出るシナリオ）。</p>
+  <hr>
+  <h2>ロード後のダイアログ（page.off 後に発火）</h2>
+  <button onclick="triggerAlert()">Alert</button>
+  <button onclick="triggerConfirm()">Confirm</button>
+  <button onclick="triggerPrompt()">Prompt</button>
+  <div id="log">（ここに結果が出ます）</div>
+
+  <script>
+    function log(msg) {
+      document.getElementById('log').textContent += msg + '\n';
+    }
+
+    // ロード時に alert を発火（goto() 中のダイアログ）
+    window.addEventListener('load', function() {
+      alert('onload alert: goto() 中のダイアログ');
+      log('onload alert が閉じられました');
+    });
+
+    function triggerAlert() {
+      alert('alert: page.off 後のダイアログ');
+      log('alert が閉じられました');
+    }
+
+    function triggerConfirm() {
+      const result = confirm('confirm: page.off 後のダイアログ');
+      log('confirm の結果: ' + result);
+    }
+
+    function triggerPrompt() {
+      const result = prompt('prompt: page.off 後のダイアログ', 'デフォルト値');
+      log('prompt の入力値: ' + result);
+    }
+  </script>
+</body>
+</html>
