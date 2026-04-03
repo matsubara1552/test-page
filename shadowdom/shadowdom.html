@@ -12,7 +12,7 @@
   const host = document.querySelector('#shadow-host');
   const shadowRoot = host.attachShadow({ mode: 'open' });
   shadowRoot.innerHTML = `
-    <p id="shadow-text">Shadow DOM テスト成功</p>
+    <p id="shadow-text">Shadow DOM テスト</p>
   `;
 
   // 2層 ネスト Shadow DOM
@@ -24,6 +24,6 @@
   const innerHost = outerShadowRoot.querySelector('#inner-shadow-host');
   const innerShadowRoot = innerHost.attachShadow({ mode: 'open' });
   innerShadowRoot.innerHTML = `
-    <p id="nested-shadow-text">ネスト Shadow DOM テスト成功</p>
+    <p id="nested-shadow-text">ネスト Shadow DOM テスト</p>
   `;
 </script>
