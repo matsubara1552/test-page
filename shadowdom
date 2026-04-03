@@ -1,0 +1,29 @@
+<body>
+  <h1>_addCustomQueryHandler Test</h1>
+
+  <!-- pierceUniqueShadowDomSelector / pierceShadowDomSelector のテスト用 -->
+  <div id="shadow-host"></div>
+
+  <!-- ネスト Shadow DOM のテスト用 -->
+  <div id="outer-shadow-host"></div>
+</body>
+<script>
+  // 1層 Shadow DOM
+  const host = document.querySelector('#shadow-host');
+  const shadowRoot = host.attachShadow({ mode: 'open' });
+  shadowRoot.innerHTML = `
+    <p id="shadow-text">Shadow DOM テスト成功</p>
+  `;
+
+  // 2層 ネスト Shadow DOM
+  const outerHost = document.querySelector('#outer-shadow-host');
+  const outerShadowRoot = outerHost.attachShadow({ mode: 'open' });
+  outerShadowRoot.innerHTML = `
+    <div id="inner-shadow-host"></div>
+  `;
+  const innerHost = outerShadowRoot.querySelector('#inner-shadow-host');
+  const innerShadowRoot = innerHost.attachShadow({ mode: 'open' });
+  innerShadowRoot.innerHTML = `
+    <p id="nested-shadow-text">ネスト Shadow DOM テスト成功</p>
+  `;
+</script>
